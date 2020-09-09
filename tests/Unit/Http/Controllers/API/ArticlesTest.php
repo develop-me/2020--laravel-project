@@ -7,7 +7,7 @@ use Tests\TestCase;
 
 use App\Http\Requests\API\ArticleRequest;
 use App\Http\Controllers\API\Articles;
-use App\Article;
+use App\Models\Article;
 
 class ArticlesTest extends TestCase
 {

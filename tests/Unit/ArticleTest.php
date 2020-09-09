@@ -5,7 +5,7 @@ namespace Tests\Unit;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 
 use Tests\TestCase;
-use App\Article;
+use App\Models\Article;
 
 class ArticleTest extends TestCase
 {

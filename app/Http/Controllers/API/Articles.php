@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\API\ArticleRequest;
 use App\Http\Resources\API\ArticleResource;
 use App\Http\Resources\API\ArticleListResource;
-use App\Article;
+use App\Models\Article;
 
 class Articles extends Controller
 {

@@ -20,3 +20,7 @@ Route::group(["prefix" => "articles"], function () {
 });
 
 Auth::routes(['register' => false]);
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
