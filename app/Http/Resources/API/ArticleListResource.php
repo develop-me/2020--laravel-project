@@ -17,6 +17,7 @@ class ArticleListResource extends JsonResource
         return [
             "id" => $this->id,
             "title" => $this->title,
+            "tags" => $this->tags->pluck("name"),
         ];
     }
 }
