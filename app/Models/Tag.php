@@ -9,16 +9,11 @@ class Tag extends Model
 {
     protected $fillable = ["name"];
 
-    static public function fromStrings(array $strings) : Collection
+    public static function fromStrings(array $strings) : Collection
     {
-        return collect($strings)->map([Tag::class, "fromString"])->unique("name");
-    }
-
-    static public function fromString(string $string) : Tag
-    {
-        $string = trim($string);
-        $tag = Tag::where("name", $string)->first();
-        return $tag ? $tag : Tag::create(["name" => $string]);
+        return collect($strings)->map(fn($str) => trim($str))
+                                ->unique()
+                                ->map(fn($str) => Tag::firstOrCreate(["name" => $str]));
     }
 
     public $timestamps = false;
