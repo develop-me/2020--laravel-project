@@ -12,14 +12,14 @@ Route::group(["prefix" => "articles"], function () {
         Route::put("", [Articles::class, "update"]);
         Route::delete("", [Articles::class, "destroy"]);
 
-        Route::group([
-            "prefix" => "comments",
-            "middleware" => "check.article"
-        ], function () {
+        Route::group(["prefix" => "comments"], function () {
             Route::get("", [Comments::class, "index"]);
             Route::post("", [Comments::class, "store"]);
 
-            Route::group(["prefix" => "{comment}"], function () {
+            Route::group([
+                "prefix" => "{comment}",
+                "middleware" => "check.article",
+            ], function () {
                 Route::get("", [Comments::class, "show"]);
                 Route::put("", [Comments::class, "update"]);
                 Route::delete("", [Comments::class, "destroy"]);
